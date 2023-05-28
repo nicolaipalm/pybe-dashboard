@@ -17,6 +17,12 @@ st.header('Benchmark Results')
 # Sidebar configuration
 #######################
 st.sidebar.header('PyBe Benchmark visualization `v1.0.0`')
+st.sidebar.markdown("👋 **Hi there!**")
+st.sidebar.markdown("This dashboard allows you to easily visualize your benchmark results obtained from the [**PyBe**](https://github.com/nicolaipalm/pybe) package."
+                    "Simply **drag or search** for the **.csv file** obtained by your **PyBe benchmark** into the field below. "
+                    "An examplary benchmark is already visible by default.")
+st.sidebar.markdown("Currently visualizes "
+                    "- all ")
 
 ###############
 # Create upload
@@ -48,7 +54,6 @@ with st.sidebar.expander('Outputs'):
     st.markdown(text)
 
 #
-st.sidebar.markdown('contact, My links linkedin etc')
 
 #########
 # Graphs
@@ -60,6 +65,7 @@ st.sidebar.markdown('contact, My links linkedin etc')
 means = pd.concat([benchmark_i.means for benchmark_i in benchmarks])
 
 # bar charts
+st.subheader("On one view - Means of outputs")
 bar_charts_means = [px.bar(means,
                            x='Input',
                            y=name_output,
@@ -73,6 +79,7 @@ for i, bar_chart in enumerate(bar_charts_means):
 
 
 # Box plots for benchmark results
+st.subheader("Statistical box plot of outputs")
 name_output_box_chart = st.selectbox(
     'Which output do you want to visualize?',
     benchmarks[0].name_outputs)
@@ -84,6 +91,7 @@ st.plotly_chart(px.box(benchmark,
 
 
 # plot all
+st.subheader("Individual plot of all results")
 x_container, y_container, color_container = st.columns(3)
 options = ['Input'] + ['Name'] + benchmarks[0].name_outputs
 with x_container:
