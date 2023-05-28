@@ -21,8 +21,6 @@ st.sidebar.markdown("👋 **Hi there!**")
 st.sidebar.markdown("This dashboard allows you to easily visualize your benchmark results obtained from the [**PyBe**](https://github.com/nicolaipalm/pybe) package."
                     "Simply **drag or search** for the **.csv file** obtained by your **PyBe benchmark** into the field below. "
                     "An examplary benchmark is already visible by default.")
-st.sidebar.markdown("Currently visualizes "
-                    "- all ")
 
 ###############
 # Create upload
